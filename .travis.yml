@@ -12,14 +12,14 @@ script:
 
 
 after_success:
-  - docker build -t shaharboro/multi-client ./client
-  - docker build -t shaharboro/multi-nginx ./nginx
-  - docker build -t shaharboro/multi-server ./server
-  - docker build -t shaharboro/multi-worker ./worker
+  - docker build -t shaharboroc/multi-client ./client
+  - docker build -t shaharboroc/multi-nginx ./nginx
+  - docker build -t shaharboroc/multi-server ./server
+  - docker build -t shaharboroc/multi-worker ./worker
   # login to docker cli
   - echo "$DOKCER_PASSWROD" |  docker login -u "$DOKCER_ID" --password-stdin
-  - docker push shaharboro/multi-client
-  - docker push shaharboro/multi-nginx
-  - docker push shaharboro/multi-server
-  - docker push shaharboro/multi-worker
+  - docker push shaharboroc/multi-client
+  - docker push shaharboroc/multi-nginx
+  - docker push shaharboroc/multi-server
+  - docker push shaharboroc/multi-worker
 
