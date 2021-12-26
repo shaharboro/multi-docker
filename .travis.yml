@@ -12,10 +12,10 @@ script:
 
 
 after_success:
-  - docker build -t multi-client ./client
-  - docker build -t multi-nginx ./nginx
-  - docker build -t multi-server ./server
-  - docker build -t multi-worker ./worker
+  - docker build -t shaharboroc/mdocker:multi-client ./client
+  - docker build -t shaharboroc/mdocker:multi-nginx ./nginx
+  - docker build -t shaharboroc/mdocker:multi-server ./server
+  - docker build -t shaharboroc/mdocker:multi-worker ./worker
   # login to docker cli-new
   - echo "$DOKCER_PASSWROD" |  docker login -u "$DOKCER_ID" --password-stdin
   - docker push shaharboroc/mdocker:multi-client
