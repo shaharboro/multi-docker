@@ -16,7 +16,7 @@ after_success:
   - docker build -t multi-nginx ./nginx
   - docker build -t multi-server ./server
   - docker build -t multi-worker ./worker
-  # login to docker cli
+  # login to docker cli-new
   - echo "$DOKCER_PASSWROD" |  docker login -u "$DOKCER_ID" --password-stdin
   - docker push shaharboroc/mdocker:multi-client
   - docker push shaharboroc/mdocker:multi-nginx
