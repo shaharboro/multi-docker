@@ -4,22 +4,22 @@ services:
 
 
 before_install:
-  - docker build -t shaharboro/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t shaharboroc/react-test -f ./client/Dockerfile.dev ./client
 
 
 script:
-  - docker run -e CI=true shaharboro/react-test npm test
+  - docker run -e CI=true shaharboroc/react-test npm test
 
 
 after_success:
-  - docker build -t shaharboroc/mdocker:multi-client ./client
-  - docker build -t shaharboroc/mdocker:multi-nginx ./nginx
-  - docker build -t shaharboroc/mdocker:multi-server ./server
-  - docker build -t shaharboroc/mdocker:multi-worker ./worker
+  - docker build -t shaharboroc/multi-client ./client
+  - docker build -t shaharboroc/multi-nginx ./nginx
+  - docker build -t shaharboroc/multi-server ./server
+  - docker build -t shaharboroc/multi-worker ./worker
   # login to docker cli-new
   - echo "$DOKCER_PASSWROD" |  docker login -u "$DOKCER_ID" --password-stdin
-  - docker push shaharboroc/mdocker:multi-client
-  - docker push shaharboroc/mdocker:multi-nginx
-  - docker push shaharboroc/mdocker:multi-server
-  - docker push shaharboroc/mdocker:multi-worker
+  - docker push shaharboroc/multi-client
+  - docker push shaharboroc/multi-nginx
+  - docker push shaharboroc/multi-server
+  - docker push shaharboroc/multi-worker
 
